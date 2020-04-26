@@ -1,0 +1,34 @@
+{
+  "steps": [
+    {
+      "name": "node:12",
+      "entrypoint": "npm",
+      "args": ["ci"]
+    },
+    {
+      "name": "node:12",
+      "entrypoint": "npm",
+      "args": ["run", "build"]
+    },
+    {
+      "name": "gcr.io/cloud-builders/gcloud",
+      "args": [
+        "functions",
+        "deploy",
+        "nestjs-google-cloud-functions",
+        "--region",
+        "europe-west3",
+        "--allow-unauthenticated",
+        "--entry-point",
+        "server",
+        "--memory",
+        "128MB",
+        "--runtime",
+        "nodejs10",
+        "--trigger-http",
+        "--timeout",
+        "30s"
+      ]
+    }
+  ]
+}
