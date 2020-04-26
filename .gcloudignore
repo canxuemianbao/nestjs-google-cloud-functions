@@ -1,3 +1,4 @@
+.github
 /src
 /test
 .eslintrc.js
@@ -5,3 +6,4 @@
 .prettierrc
 nest-cli.json
 README.md
+renovate.json
